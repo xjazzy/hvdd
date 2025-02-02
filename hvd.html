@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Date</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1518606370955-f0e87068865d'); /* Example image URL */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: white; /* Text color to stand out on the background */
+    }
+    .container {
+      max-width: 500px;
+      width: 90%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #e60000;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 150px;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    #responseMessage {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    #emoji {
+      font-size: 3rem;
+      margin-top: 20px;
+      animation-duration: 1s;
+    }
+
+    /* Heart animation for Yes */
+    .heart {
+      animation: heartAnimation 1s infinite;
+    }
+
+    /* Broken heart animation for No */
+    .broken-heart {
+      animation: brokenHeartAnimation 1s infinite;
+    }
+
+    @keyframes heartAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes brokenHeartAnimation {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(-10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      button {
+        font-size: 1rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pwede ba kita ka date sa Valentine's?</h1>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+    <p id="responseMessage"></p>
+    <div id="emoji"></div>
+  </div>
+
+  <script>
+    document.getElementById('yesBtn').addEventListener('click', function() {
+      document.getElementById('responseMessage').textContent = 'Yes, Bembang na!';
+      document.getElementById('responseMessage').style.color = 'green';
+      document.getElementById('emoji').innerHTML = '❤️';  // Heart emoji
+      document.getElementById('emoji').className = 'heart';  // Add heart animation
+    });
+
+    document.getElementById('noBtn').addEventListener('click', function() {
+      document.getElementById('responseMessage').textContent = 'aray ko po..';
+      document.getElementById('responseMessage').style.color = 'blue';
+      document.getElementById('emoji').innerHTML = '💔';  // Broken heart emoji
+      document.getElementById('emoji').className = 'broken-heart';  // Add broken heart animation
+    });
+  </script>
+</body>
+</html>
